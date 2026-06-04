@@ -1,0 +1,75 @@
+{
+   "Format": "2.9.0",
+   "ConfigSchema": {
+       //Master Options       
+       "JojaGreen": {
+			"AllowValues": "true, false",
+			"Default": "true",
+            "Description": "Change anything Joja-related to the green of the exterior from Seaside Valley",
+            "Section": "Master Options"
+		},
+        "LiteMode": {
+			"AllowValues": "true, false",
+			"Default": "false",
+            "Description": "Disables most of the unique location edits & customizations to improve loading time (important graphical fixes are still available). The town framing, furniture, and door color options will be used everywhere. Map edits will still apply if they are enabled. Defaults to FALSE - set to true only if you are having trouble with location-switch lag and don't mind the lack of customization.",
+            "Section": "Master Options"
+		},
+        
+    },
+    "DynamicTokens": [
+		{
+		"Name": "SVE",
+		"Value": "false",
+		},
+		{
+		"Name": "SVE",
+		"Value": "true",
+			"When": { "HasMod" : "FlashShifter.StardewValleyExpandedCP"},
+		},        
+	],
+    
+    
+   "Changes": [
+    
+    //Main Town
+        {
+            "LogName": "Tilesheet Overlays",
+            "Action": "EditImage",
+            "PatchMode": "Overlay",
+            "Target": "Maps/{{season}}_zridgesidebuildings, Maps/{{season}}_zrsvcablecar, Maps/{{season}}_zrsvscene1, ",
+            "FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",            
+        },
+        {			
+            "LogName": "Log Cabin Hotel railing fix",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_outdoorsTileSheet",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 256, "Y": 0, "Width": 144, "Height": 32 },
+			"ToArea": { "X": 256, "Y": 0, "Width": 144, "Height": 32 },
+		},
+        {			
+            "LogName": "Amethyne Shadow Fix Left",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_outdoorsTileSheet",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 102, "Y": 928, "Width": 2, "Height": 2 },
+			"ToArea": { "X": 102, "Y": 928, "Width": 2, "Height": 2 },
+            "When": { "season": "spring, summer, fall" }
+		},
+        {			
+            "LogName": "Amethyne Shadow Fix Right",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_outdoorsTileSheet",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 262, "Y": 928, "Width": 2, "Height": 2 },
+			"ToArea": { "X": 262, "Y": 928, "Width": 2, "Height": 2 },
+            "When": { "season": "spring, summer, fall" }
+		},
+    
+        
+   ]
+}
+
