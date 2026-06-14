@@ -68,6 +68,24 @@
 			"ToArea": { "X": 262, "Y": 928, "Width": 2, "Height": 2 },
             "When": { "season": "spring, summer, fall" }
 		},
+        {			
+            "LogName": "Rivera Roof Fix",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 528, "Y": 860, "Width": 1, "Height": 2 },
+			"ToArea": { "X": 528, "Y": 860, "Width": 1, "Height": 2 },
+		},
+        {			
+            "LogName": "Comm Garden Glass Transparency Fix",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 784, "Y": 800, "Width": 208, "Height": 64 },
+			"ToArea": { "X": 784, "Y": 800, "Width": 208, "Height": 64 },
+		},
     
         
    ]
