@@ -1,10 +1,10 @@
 {
     "Name": "Seaside Valley - Ridgeside",
     "Author": "rainkius",
-    "Version": "0.1-alpha",
+    "Version": "0.2-alpha",
     "Description": "Seaside Valley matching recolors of Ridgeside Village assets",
     "UniqueID": "rainkius.SeasideValleyRSV",
-    "UpdateKeys": [""],  // please see github for now - https://github.com/rainkius
+    "UpdateKeys": ["Github:rainkius/Seaside-Valley---RSV"],  // please see github for now - https://github.com/rainkius
     "ContentPackFor": {
         "UniqueID": "Pathoschild.ContentPatcher"
     },

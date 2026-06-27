@@ -2,11 +2,11 @@
    "Format": "2.9.0",
    "ConfigSchema": {
        //Master Options       
-       "JojaGreen": {
+       "HudsonValleyBuildings": {
 			"AllowValues": "true, false",
 			"Default": "true",
-            "Description": "Change anything Joja-related to the green of the exterior from Seaside Valley",
-            "Section": "Master Options"
+            "Description": "Replace the farm buildings on the RSV map with a custom recolor of Hudson Valley Buildings (coops, barn, etc), based on the Stonybrook color. **The foliage and snow on these buildings are Earthy Recolour**",
+            "Section": "Town"
 		},
         "LiteMode": {
 			"AllowValues": "true, false",
@@ -36,9 +36,18 @@
             "LogName": "Tilesheet Overlays",
             "Action": "EditImage",
             "PatchMode": "Overlay",
-            "Target": "Maps/{{season}}_zridgesidebuildings, Maps/{{season}}_zrsvcablecar, Maps/{{season}}_zrsvscene1, ",
+            "Target": "Maps/{{season}}_zridgesidebuildings, Maps/{{season}}_zridgetiles, Maps/{{season}}_zrsvcablecar, Maps/{{season}}_zrsvcliffhouse, Maps/{{season}}_zrsvscene1, Maps/FreddieShedItems, Maps/zFreddieShedItems",
             "FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",            
         },
+        {
+            "LogName": "Tilesheet Complete Replacements",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+            "Target": "Maps/{{season}}_zrsvbettersquare,",
+            "FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",            
+        },
+        
+         // zridgesidebuildings tilesheet fixes
         {			
             "LogName": "Log Cabin Hotel railing fix",
             "Action": "EditImage",
@@ -47,6 +56,33 @@
 			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
             "FromArea": { "X": 256, "Y": 0, "Width": 144, "Height": 32 },
 			"ToArea": { "X": 256, "Y": 0, "Width": 144, "Height": 32 },
+		},
+        {			
+            "LogName": "Small Greenhouse Glass Fix",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 880, "Y": 192, "Width": 112, "Height": 64 },
+			"ToArea": { "X": 880, "Y": 192, "Width": 112, "Height": 64 },
+		},
+        {			
+            "LogName": "Planter tops fix",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 16, "Y": 384, "Width": 80, "Height": 16 },
+			"ToArea": { "X": 16, "Y": 384, "Width": 80, "Height": 16 },
+		},
+        {			
+            "LogName": "Fishing Nets bc transparency",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 48, "Y": 432, "Width": 144, "Height": 48 },
+			"ToArea": { "X": 48, "Y": 432, "Width": 144, "Height": 48 },
 		},
         {			
             "LogName": "Amethyne Shadow Fix Left",
@@ -86,8 +122,87 @@
             "FromArea": { "X": 784, "Y": 800, "Width": 208, "Height": 64 },
 			"ToArea": { "X": 784, "Y": 800, "Width": 208, "Height": 64 },
 		},
-    
-        
+          // Farm Buildings
+        {			
+            "LogName": "Coop Replacement",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 672, "Y": 240, "Width": 96, "Height": 112 },
+			"ToArea": { "X": 672, "Y": 240, "Width": 96, "Height": 112 },
+            "When": { "HudsonValleyBuildings": true, }
+		},
+        {			
+            "LogName": "Barn Replacement",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 768, "Y": 240, "Width": 112, "Height": 112 },
+			"ToArea": { "X": 768, "Y": 240, "Width": 112, "Height": 112 },
+            "When": { "HudsonValleyBuildings": true, }
+		},
+        {			
+            "LogName": "Beehouses Replacement",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 96, "Y": 384, "Width": 32, "Height": 32 },
+			"ToArea": { "X": 96, "Y": 384, "Width": 32, "Height": 32 },
+            "When": { "HudsonValleyBuildings": true, }
+		},
+        {			
+            "LogName": "Well Replacement",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 0, "Y": 416, "Width": 48, "Height": 80 },
+			"ToArea": { "X": 0, "Y": 416, "Width": 48, "Height": 80 },
+            "When": { "HudsonValleyBuildings": true, }
+		},
+        {			
+            "LogName": "Mill Replacement Pt 1",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 0, "Y": 496, "Width": 80, "Height": 128 },
+			"ToArea": { "X": 0, "Y": 496, "Width": 80, "Height": 128 },
+            "When": { "HudsonValleyBuildings": true, }
+		},
+        {			
+            "LogName": "Mill Replacement Pt 2",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 80, "Y": 496, "Width": 144, "Height": 64 },
+			"ToArea": { "X": 80, "Y": 496, "Width": 144, "Height": 64 },
+            "When": { "HudsonValleyBuildings": true, }
+		},
+        {			
+            "LogName": "Shed Replacement",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 464, "Y": 416, "Width": 112, "Height": 128 },
+			"ToArea": { "X": 464, "Y": 416, "Width": 112, "Height": 128 },
+            "When": { "HudsonValleyBuildings": true, }
+		},
+        {			
+            "LogName": "Silo Replacement",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+			"Target": "Maps/{{season}}_zridgesidebuildings",
+			"FromFile": "assets/Tilesheets/{{TargetWithoutPath}}.png",
+            "FromArea": { "X": 896, "Y": 496, "Width": 48, "Height": 128 },
+			"ToArea": { "X": 896, "Y": 496, "Width": 48, "Height": 128 },
+            "When": { "HudsonValleyBuildings": true, }
+		},
    ]
 }
 
